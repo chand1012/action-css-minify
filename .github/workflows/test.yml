@@ -13,13 +13,6 @@ jobs:
       with:
         folder: './'
       
-    - name: Commit and push changes
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Print out test file.
       run: |
-        git config user.name "Github Action"
-        git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-        git checkout `echo $GITHUB_REF | cut -d'/' -f3-`
-        git add -A
-        git commit -m "[bot] Update test file."
-        git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" `echo $GITHUB_REF | cut -d'/' -f3-`
+        cat test.min.css

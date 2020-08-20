@@ -6,6 +6,9 @@ const fs = require('fs');
 
 try {
     const givenDir = core.getInput('folder');
+
+    console.log('Minifying files in ' + givenDir);
+
     const directoryPath = path.join(givenDir);
     fs.readdir(directoryPath, (err, files) => {
         if (err) {
@@ -15,7 +18,7 @@ try {
         files.forEach((file) => {
             var filePath = path.join(directoryPath, file)
             if (file.includes('.css') && !file.includes('.min.css')) {
-
+                console.log('Minifying ' + file);
                 fs.readFile(filePath, 'utf8', (err, data) => {
                     if (err) {
                         throw err;
