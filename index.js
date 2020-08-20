@@ -13,14 +13,16 @@ try {
         }
 
         files.forEach((file) => {
+            var filePath = path.join(directoryPath, file)
             if (file.includes('.css') && !file.includes('.min.css')) {
-                fs.readFile(file, 'utf8', (err, data) => {
+
+                fs.readFile(filePath, 'utf8', (err, data) => {
                     if (err) {
                         throw err;
                     }
     
                     var minifiedCss = csso.minify(data).css;
-                    var newName = file.replace('.css', '.min.css');
+                    var newName = filePath.replace('.css', '.min.css');
     
                     fs.writeFile(newName, minifiedCss, (err) => {
                         if (err) {
