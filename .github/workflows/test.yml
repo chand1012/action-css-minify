@@ -1,0 +1,25 @@
+name: CSS Minifier
+
+on: [push]
+
+jobs:
+  minify:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Minify CSS
+      uses: ./
+      with:
+        folder: './'
+      
+    - name: Commit and push changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        git config user.name "Github Action"
+        git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+        git checkout `echo $GITHUB_REF | cut -d'/' -f3-`
+        git add -A
+        git commit -m "[bot] Update production frontend files."
+        git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" `echo $GITHUB_REF | cut -d'/' -f3-`
