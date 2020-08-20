@@ -1,0 +1,30 @@
+{
+  "name": "action-css-minify",
+  "version": "0.0.1",
+  "description": "Minifies CSS via a github action",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chand1012/action-css-minify.git"
+  },
+  "keywords": [
+    "action",
+    "github",
+    "css"
+  ],
+  "author": "Chandler Lofland",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chand1012/action-css-minify/issues"
+  },
+  "homepage": "https://github.com/chand1012/action-css-minify#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0",
+    "csso": "^4.0.3"
+  }
+}
