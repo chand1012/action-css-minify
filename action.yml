@@ -1,7 +1,8 @@
 name: 'CSS Minifier'
 description: 'Uses csso to minify CSS via a GitHub Action.'
-icon: box
-color: blue
+branding:
+    icon: box
+    color: blue
 inputs:
     folder:
         description: 'Folder with CSS'
